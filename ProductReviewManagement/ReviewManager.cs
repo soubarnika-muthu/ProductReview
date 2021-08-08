@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProductReviewManagement
 {
-    class ReviewManager
+   public class ReviewManager
     {
         List<ProductReview> Product;
         public ReviewManager()
@@ -14,7 +14,7 @@ namespace ProductReviewManagement
             Product = new List<ProductReview>();
         }
         //UC1-Adding 25 Reviews
-        public void AddReviews()
+        public List<ProductReview> AddReviews()
         {
             Product.Add(new ProductReview() { productId = 1, userId = 3, rating = 10, review = "Average", isLike = true });
             Product.Add(new ProductReview() { productId = 7, userId = 6, rating = 3, review = "bad", isLike = false });
@@ -41,7 +41,7 @@ namespace ProductReviewManagement
             Product.Add(new ProductReview() { productId = 5, userId = 1, rating = 4, review = "bad", isLike = false });
             Product.Add(new ProductReview() { productId = 6, userId = 5, rating = 9, review = "Average", isLike = true });
             Product.Add(new ProductReview() { productId = 9, userId = 10, rating = 5, review = "bad", isLike = false });
-            IterateMethod(Product);
+            return Product;
         }
 
         public void IterateMethod(List<ProductReview> products)
@@ -52,11 +52,11 @@ namespace ProductReviewManagement
             }
         }
         //UC2-Retrive top3  rated product from the list
-        public void Top3RatedProduct()
+        public List<ProductReview> Top3RatedProduct()
         {
             var res = (from product in Product orderby product.rating descending select product).Take(3).ToList();
             Console.WriteLine("Top 3 products");
-            IterateMethod(res);
+            return res;
         }
 
         //UC3-Retrive All record or product rating greater than 3 and product id is 1 or 4 or 9
@@ -67,15 +67,18 @@ namespace ProductReviewManagement
             return res;
         }
 
-        //UC4-Count of person gave review
-        public void CountOfUser()
+        //UC3-Count of person gave review
+        public string CountOfUser()
         {
-            Console.WriteLine("\nCount of person reviewed the product");
+
+            string result = "";
             var res = Product.GroupBy(p => p.productId).Select(x => new { productId = x.Key, count = x.Count() });
             foreach (var r in res)
             {
                 Console.WriteLine("Product Id:{0}\tCount:{1}", r.productId, r.count);
+                result += "" + r.productId + " " + r.count + " ";
             }
+            return result;
         }
         //UC5-Retrive product Id from list
         public void RetriveOnlyProductId()
