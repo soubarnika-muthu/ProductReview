@@ -139,5 +139,21 @@ namespace ProductReviewManagement
             return res;
 
         }
+
+        //UC10-Creating the data table 
+        public void CreateDataTable(List<ProductReview> list)
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ProductId");
+            dataTable.Columns.Add("UserId");
+            dataTable.Columns.Add("rating");
+            dataTable.Columns.Add("Reviews");
+            dataTable.Columns.Add("IsLike");
+            foreach (var l in list)
+            {
+                dataTable.Rows.Add(l.productId, l.userId, l.rating, l.review, l.isLike);
+            }
+            IterateTable(dataTable);
+        }
     }
 }
