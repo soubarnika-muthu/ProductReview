@@ -92,6 +92,11 @@ namespace ProductReviewManagement
             }
 
         }
-
+        //UC6-Skip top 5 records
+        public List<ProductReview> SkipTop5Record()
+        {
+            var res = (from product in Product orderby product.rating descending select product).Skip(5).ToList();
+            return res;
+        }
     }
 }
