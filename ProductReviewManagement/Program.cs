@@ -14,6 +14,7 @@ namespace ProductReviewManagement
 
             ReviewManager review = new ReviewManager();
             review.AddReviews();
+            review.Top3RatedProduct();
 
             Console.Read();
         }

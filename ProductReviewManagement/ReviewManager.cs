@@ -51,5 +51,12 @@ namespace ProductReviewManagement
                 Console.WriteLine("Product Id:{0}\tUser Id:{1}\tRating:{2}\tReview:{3}\tIsLike:{4}", p.productId, p.userId, p.rating, p.review, p.isLike);
             }
         }
+        //UC2-Retrive top3  rated product from the list
+        public void Top3RatedProduct()
+        {
+            var res = (from product in Product orderby product.rating descending select product).Take(3).ToList();
+            Console.WriteLine("Top 3 products");
+            IterateMethod(res);
+        }
     }
 }
