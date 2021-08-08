@@ -14,7 +14,20 @@ namespace ProductReviewManagement
 
             ReviewManager review = new ReviewManager();
             review.AddReviews();
-            review.Top3RatedProduct();
+            Console.WriteLine("1.Top3Ratedproduct\n2.RetrivalRecordRatingGreaterThan3");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch(choice)
+            {
+                case 1:
+                    review.Top3RatedProduct();
+                    break;
+
+                case 2:
+                    review.IterateMethod(review.RetrivalRecordRatingGreaterThan3());
+                    break;
+
+            }
+           
 
             Console.Read();
         }

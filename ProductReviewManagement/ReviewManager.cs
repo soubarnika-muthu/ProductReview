@@ -58,5 +58,13 @@ namespace ProductReviewManagement
             Console.WriteLine("Top 3 products");
             IterateMethod(res);
         }
+
+        //UC3-Retrive All record or product rating greater than 3 and product id is 1 or 4 or 9
+        public List<ProductReview> RetrivalRecordRatingGreaterThan3()
+        {
+            List<ProductReview> res = null;
+            res = (from product in Product where (product.rating > 3) && (product.productId == 1 || product.productId == 4 || product.productId == 9) select product).ToList();
+            return res;
+        }
     }
 }
