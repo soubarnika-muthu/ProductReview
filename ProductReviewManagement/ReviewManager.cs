@@ -77,5 +77,21 @@ namespace ProductReviewManagement
                 Console.WriteLine("Product Id:{0}\tCount:{1}", r.productId, r.count);
             }
         }
+        //UC5-Retrive product Id from list
+        public void RetriveOnlyProductId()
+        {
+            var res = from product in Product
+                      select new
+                      {
+                          productId = product.productId,
+                          review = product.review
+                      };
+            foreach (var r in res)
+            {
+                Console.WriteLine("Product Id:{0}\tReview:{1}", r.productId, r.review);
+            }
+
+        }
+
     }
 }

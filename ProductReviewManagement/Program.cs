@@ -15,6 +15,7 @@ namespace ProductReviewManagement
             ReviewManager review = new ReviewManager();
             review.AddReviews();
             Console.WriteLine("1.Top3Ratedproduct\n2.RetrivalRecordRatingGreaterThan3\n3.CountOfUser");
+            Console.WriteLine("4.RetriveOnlyProductId");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch(choice)
             {
@@ -27,6 +28,9 @@ namespace ProductReviewManagement
                     break;
                 case 3:
                     review.CountOfUser();
+                    break;
+                case 4:
+                    review.RetriveOnlyProductId();
                     break;
                 default:
                     Console.WriteLine("enter valid choice");
