@@ -10,6 +10,13 @@ namespace ProductReviewManagement
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Implementaion of product review management");
+
+            ReviewManager review = new ReviewManager();
+            review.AddReviews();
+
+            Console.Read();
         }
+        
     }
 }
