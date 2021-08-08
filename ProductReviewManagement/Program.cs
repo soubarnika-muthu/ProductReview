@@ -35,6 +35,9 @@ namespace ProductReviewManagement
                 case 5:
                     review.IterateMethod(review.SkipTop5Record());
                     break;
+                case 6:
+                    review.RetriveOnlyProductIdMethod();
+                    break;
                 default:
                     Console.WriteLine("enter valid choice");
                     break;
