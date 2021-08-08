@@ -131,5 +131,13 @@ namespace ProductReviewManagement
             }
             return result;
         }
+
+        //UC9-retriving RecordBased on review
+        public List<ProductReview> RetrivingBasedOnReview(string review)
+        {
+            List<ProductReview> res = Product.Where(x => x.review.Equals(review)).ToList();
+            return res;
+
+        }
     }
 }

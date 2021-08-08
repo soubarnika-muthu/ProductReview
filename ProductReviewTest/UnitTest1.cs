@@ -94,5 +94,15 @@ namespace ProductReviewTest
             string actual = review.AverageOfRating();
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        //UC9-Retrive recors based on review
+        public void RetriveProductBasedOnReview()
+        {
+            int expected = 6;
+            var list = review.RetrivingBasedOnReview("good");
+            int actual = list.Count;
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
