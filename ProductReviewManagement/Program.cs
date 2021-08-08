@@ -15,11 +15,14 @@ namespace ProductReviewManagement
 
             ReviewManager review = new ReviewManager();
             List<ProductReview> list = review.AddReviews();
-            review.CreateDataTable(list);
+            //review.CreateDataTable(list);
+            review.IterateMethod(review.RetriveTheRecordOfUserId(10));
 
 
             Console.Read();
         }
-        
+
+       
+
     }
 }
